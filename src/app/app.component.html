@@ -10,6 +10,8 @@
   </li>
 </ul>
 
+<p style="color:red" *ngIf="error">{{error}}</p>
+
 <input type="text" #newItem />
 <button (click)="addTodo(newItem.value)">Add Todo</button>
 <button (click)="changeTitle(newItem.value)">Change Title</button>

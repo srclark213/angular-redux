@@ -10,6 +10,7 @@ import { TitleAction } from './redux/reducers/title.reducer';
 export class AppComponent implements OnInit {
   title;
   todos = [];
+  error;
 
   constructor(private store: StoreService) {
   }
@@ -17,6 +18,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.store.getState(s => s.title).subscribe((data) => this.title = data);
     this.store.getState(s => s.todos).subscribe(d => this.todos = d);
+    this.store.getState(s => s.error).subscribe(d => {
+      console.log(d);
+      this.error = d;
+    });
   }
 
   changeTitle(val: string) {
